@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Splatter.Models.Project>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Projects</h2>
+
+<p>
+    @if (User.IsInRole("Administrator"))
+    {
+        @Html.ActionLink("Create New", "Create")
+    }
+    
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @if (User.IsInRole("Administrator"))
+           {
+            @Html.ActionLink("Assign", "AssignUsers", "ProjectUsers", new { id = item.Id }, null) <content>|</content>
+            @Html.ActionLink("View / Unassign", "UsersOnProject", "ProjectUsers", new { id = item.Id }, null) <content>|</content>
+            @Html.ActionLink("Edit Project", "Edit", new { id=item.Id }, null) <content>|</content>
+            @Html.ActionLink("Delete Project", "Delete", new { id = item.Id }, null) <content>|</content>
+            @Html.ActionLink("View Project Tickets", "Index", "Tickets", new { id = item.Id }, null)
+           }
+            else
+            {
+            @Html.ActionLink("View Tickets", "Index", "Tickets", new { id = item.Id }, null)
+           }
+
+        </td>
+    </tr>
+}
+
+</table>

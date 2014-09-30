@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Splatter.Models.RolesViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>System Roles</h2>
+
+<p>
+    @Html.ActionLink("Add New Role", "CreateRole")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RoleName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        @Html.HiddenFor(modelItem => item.RoleId)
+        <td>
+            @Html.DisplayFor(modelItem => item.RoleName)
+        </td>
+        
+        <td>
+            @Html.ActionLink("Assign Users", "AssignUsers", "UserRoles", new { id = item.RoleId }, null) |
+            @Html.ActionLink("View / Unassign Users", "UsersInRole", "UserRoles", new { id = item.RoleId }, null) |
+            @Html.ActionLink("Edit Role", "EditRole", new { id = item.RoleId}) |
+            @Html.ActionLink("Delete Role", "DeleteRole", new {  id=item.RoleId  })
+        </td>
+    </tr>
+}
+
+</table>
