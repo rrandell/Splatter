@@ -201,6 +201,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BugTracker.edmx</DependentUpon>
     </Compile>
+    <Compile Include="img\EntityAddOns\BTUser.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Project.cs">
