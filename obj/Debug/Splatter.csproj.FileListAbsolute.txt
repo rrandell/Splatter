@@ -56,3 +56,4 @@ C:\Users\Ryan\Documents\Visual Studio 2013\Projects\Splatter\Splatter\bin\PagedL
 C:\Users\Ryan\Documents\Visual Studio 2013\Projects\Splatter\Splatter\bin\PagedList.Mvc.dll
 C:\Users\Ryan\Documents\Visual Studio 2013\Projects\Splatter\Splatter\bin\PagedList.xml
 C:\Users\Ryan\Documents\Visual Studio 2013\Projects\Splatter\Splatter\bin\PagedList.Mvc.xml
+C:\Users\Ryan\Documents\Visual Studio 2013\Projects\Splatter\Splatter\obj\Debug\Splatter.csprojResolveAssemblyReference.cache
