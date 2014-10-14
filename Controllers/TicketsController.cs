@@ -41,10 +41,10 @@ namespace Splatter.Controllers
         }
 
         // GET: Tickets
-        [Authorize(Roles = "Administrator, Developer, Submitter")]
+        [Authorize(Roles = "Administrator, Developer, Submitter, Guest")]
         public ActionResult Index(int? projectid, string param, string paramtype, int? page)
         {
-            if (projectid != null)
+            if (projectid != null) 
             {
                 ProjectId = (int)projectid;
             }
@@ -193,7 +193,7 @@ namespace Splatter.Controllers
         }
 
         // GET: Tickets/Details/5
-        [Authorize(Roles = "Administrator, Developer, Submitter")]
+        [Authorize(Roles = "Administrator, Developer, Submitter,Guest")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -213,7 +213,7 @@ namespace Splatter.Controllers
         }
 
         // GET: Tickets/Create
-        [Authorize(Roles = "Submitter")]
+        [Authorize(Roles = "Submitter, Guest")]
         public ActionResult Create()
         {
             Ticket model = new Ticket();
@@ -236,7 +236,7 @@ namespace Splatter.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [Authorize(Roles = "Submitter")]
+        [Authorize(Roles = "Submitter, Guest")]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Title,Description,Created,Updated,ProjectId,TypeId,PriorityId,StatusId,OwnerUserName,AssignedToUserName")] Ticket ticket)
         {
@@ -258,7 +258,7 @@ namespace Splatter.Controllers
         }
 
         // GET: Tickets/Edit/5
-        [Authorize(Roles = "Administrator, Developer, Submitter")]
+        [Authorize(Roles = "Administrator, Developer, Submitter, Guest")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -287,7 +287,7 @@ namespace Splatter.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [Authorize(Roles = "Administrator, Developer, Submitter")]
+        [Authorize(Roles = "Administrator, Developer, Submitter, Guest")]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Title,Description,Created,Updated,ProjectId,TypeId,PriorityId,StatusId,OwnerUserName,AssignedToUserName")] Ticket ticket)
         {

@@ -11,7 +11,7 @@ using System.IO;
 
 namespace Splatter.Controllers
 {
-    [Authorize(Roles = "Administrator, Developer, Submitter")]
+    [Authorize(Roles = "Administrator, Developer, Submitter, Guest")]
     public class TicketAttachmentsController : Controller
     {
 

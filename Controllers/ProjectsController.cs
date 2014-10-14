@@ -15,14 +15,14 @@ namespace Splatter.Controllers
         private BugTrackerEntities db = new BugTrackerEntities();
 
         // GET: Projects
-        [Authorize(Roles = "Administrator, Developer")]
+        [Authorize(Roles = "Administrator, Developer, Guest")]
         public ActionResult Index()
         {
             return View(db.Projects.ToList());
         }
 
         // GET: Projects/Details/5
-        [Authorize(Roles = "Administrator, Developer")]
+        [Authorize(Roles = "Administrator, Developer, Guest")]
         public ActionResult Details(int? id)
         {
             if (id == null)
